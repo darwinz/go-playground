@@ -33,7 +33,7 @@ func main() {
 	fmt.Println("Sales by month for 2018")
 	salesByMonth()
 
-	fmt.Println("Searching for hello world from randomly selected parts of the same text...\n\n")
+	fmt.Println("Searching for hello world from randomly selected parts of the same text...")
 	helloWorld()
 }
 
