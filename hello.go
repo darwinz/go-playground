@@ -1,22 +1,39 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
 	"math"
 	"math/rand"
+	"os"
+	"strconv"
+	"strings"
 	"time"
 )
 
 func main() {
-	squareRoot, err := squareRoot(12)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter a positive integer:  ")
+	numInput, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(squareRoot)
+	numInput = strings.Replace(numInput, "\n", "", -1)
+	num, err := strconv.ParseFloat(numInput, 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	squareRoot, err := squareRoot(num)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Square root of ", numInput, ": ", squareRoot)
 
+	fmt.Println("Sales by month for 2018")
 	salesByMonth()
 
+	fmt.Println("Searching for hello world from randomly selected parts of the same text...\n\n")
 	helloWorld()
 }
 
@@ -28,8 +45,14 @@ func squareRoot(x float64) (float64, error) {
 }
 
 func salesByMonth() {
-	months := [12]string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-	salesByMonth := [12]float64{1284.20, 1710.26, 2245.97, 3032.40, 2956.43, 3215.16, 3165.98, 3420.10, 3687.61, 3678.73, 3712.10, 3799.35}
+	months := [12]string{
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+	}
+	salesByMonth := [12]float64{
+		1284.20, 1710.26, 2245.97, 3032.40, 2956.43, 3215.16,
+		3165.98, 3420.10, 3687.61, 3678.73, 3712.10, 3799.35,
+	}
 	for i := 0; i < len(months); i++ {
 		fmt.Println(months[i], salesByMonth[i])
 	}
