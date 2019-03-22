@@ -24,41 +24,48 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	squareRoot, err := squareRoot(num)
+	squareRoot, err := SquareRoot(num)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("Square root of ", numInput, ": ", squareRoot)
 
+	salesByMonth := SalesByMonth()
 	fmt.Println("Sales by month for 2018")
-	salesByMonth()
+	for month, sales := range salesByMonth {
+		fmt.Println(month, sales)
+	}
 
 	fmt.Println("Searching for hello world from randomly selected parts of the same text...")
-	helloWorld()
+	HelloWorld()
 }
 
-func squareRoot(x float64) (float64, error) {
+func SquareRoot(x float64) (float64, error) {
 	if x < 0 {
 		return 0, fmt.Errorf("can't take square root of negative number")
 	}
 	return math.Sqrt(x), nil
 }
 
-func salesByMonth() {
-	months := [12]string{
-		"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-	}
-	salesByMonth := [12]float64{
-		1284.20, 1710.26, 2245.97, 3032.40, 2956.43, 3215.16,
-		3165.98, 3420.10, 3687.61, 3678.73, 3712.10, 3799.35,
-	}
-	for i := 0; i < len(months); i++ {
-		fmt.Println(months[i], salesByMonth[i])
-	}
+func SalesByMonth() map[string]float64 {
+	salesByMonth := map[string]float64{}
+	salesByMonth["Jan"] = 1284.20
+	salesByMonth["Feb"] = 1710.26
+	salesByMonth["Mar"] = 2245.97
+	salesByMonth["Apr"] = 3032.40
+	salesByMonth["May"] = 2956.43
+	salesByMonth["Jun"] = 3215.16
+	salesByMonth["Jul"] = 3165.98
+	salesByMonth["Aug"] = 3420.10
+	salesByMonth["Sep"] = 3687.61
+	salesByMonth["Oct"] = 3678.73
+	salesByMonth["Nov"] = 3712.10
+	salesByMonth["Dec"] = 3799.35
+
+	return salesByMonth
 }
 
-func helloWorld() {
+func HelloWorld() {
 	t := "Hello World!"
 	s := []rune(t)
 	for {
