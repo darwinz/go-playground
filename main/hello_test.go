@@ -5,11 +5,11 @@ import (
 )
 
 func TestSquareRoot(t *testing.T) {
-	squared := 25
-	subject := SquareRoot(subject)
-	expected := 5
+	var squared float64 = 25
+	subject, _ := SquareRoot(squared)
+	var expected float64 = 5
 	if subject != expected {
-		t.Errorf("Square root was incorrect, got %d, expected %d.", subject, expected)
+		t.Errorf("Square root was incorrect, got %f, expected %f.", subject, expected)
 	}
 }
 
@@ -25,13 +25,5 @@ func TestSalesByMonth(t *testing.T) {
 
 	if subject2 != expected2 {
 		t.Errorf("Sales by month was incorrect, got %f, expected %f.", subject2, expected2)
-	}
-}
-
-func TestHelloWorld(t *testing.T) {
-	subject := 123
-	expected := HelloWorld()
-	if subject != expected {
-		t.Errorf("Hello world was incorrect, got %d, expected %d.", subject, expected)
 	}
 }
