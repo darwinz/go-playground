@@ -5,12 +5,12 @@ stages:
 
 before_script:
   - cp -r main /go/src/
-  - cd /go/src/main
+  - cd /go/src
 
 build-my-project:
   stage: build
   script:
-    - go build hello.go
+    - go build main/hello.go
 
 test-my-project:
   stage: test
