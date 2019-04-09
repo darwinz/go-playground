@@ -4,7 +4,7 @@ stages:
   - test
 
 before_script:
-  - cp main /go/src/
+  - cp -r main /go/src/
   - cd /go/src/main
 
 build-my-project:
