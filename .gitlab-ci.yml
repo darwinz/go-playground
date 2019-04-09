@@ -15,4 +15,4 @@ build-my-project:
 test-my-project:
   stage: test
   script:
-    - go test -v -cover ./...
+    - go test -v -cover .
