@@ -1,4 +1,4 @@
-package main
+package hello
 
 import (
 	"bufio"
@@ -37,7 +37,7 @@ func main() {
 	}
 
 	fmt.Println("Searching for hello world from randomly selected parts of the same text...")
-	HelloWorld()
+	HiWorld()
 }
 
 func SquareRoot(x float64) (float64, error) {
@@ -65,7 +65,7 @@ func SalesByMonth() map[string]float64 {
 	return salesByMonth
 }
 
-func HelloWorld() {
+func HiWorld() {
 	t := "Hello World!"
 	s := []rune(t)
 	for {
